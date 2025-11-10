@@ -1,0 +1,260 @@
+/* =======================
+ 🌈 Dynamic Form Builder UI
+========================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* ---------- Card Layout ---------- */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Headings ---------- */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  border-left: 5px solid #3b82f6;
+  padding-left: 10px;
+}
+
+/* ---------- Inputs & Selects ---------- */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f9fafb;
+  outline: none;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+  transform: translateY(-2px);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #3b82f6;
+}
+
+.btn.ghost:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn.small {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  margin-left: 6px;
+}
+
+.btn.danger {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.btn.danger:hover {
+  background: linear-gradient(90deg, #b91c1c, #dc2626);
+}
+
+/* ---------- Lists ---------- */
+ul {
+  list-style: none;
+}
+
+.form-list,
+.fields-list {
+  margin-top: 10px;
+}
+
+.form-card,
+.field-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.form-card:hover,
+.field-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Tables ---------- */
+.response-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.response-table th,
+.response-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.response-table th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #60a5fa;
+}
+
+.response-table tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Misc Elements ---------- */
+.meta {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.badge {
+  background: #3b82f6;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 8px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+}
+
+.opts {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-card {
+  background: rgba(17, 24, 39, 0.9);
+  border-radius: 15px;
+  padding: 30px;
+  width: 400px;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.modal-card {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  .card {
+    padding: 20px;
+  }
+  .modal-card {
+    width: 90%;
+  }
+  /* ---------- Fix: Dropdown option colors ---------- */
+select {
+  color: #f9fafb; /* keep text white inside select box */
+  background: rgba(255, 255, 255, 0.08);
+}
+
+select option {
+  color: #000; /* black text inside dropdown list */
+  background-color: #f9fafb; /* white background for dropdown */
+}
+
+}
+
